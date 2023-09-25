@@ -2,8 +2,8 @@ package example
 
 import (
 	"context"
-	"myredmq"
-	"myredmq/redis"
+	"myredmq/myredmq"
+	"myredmq/myredmq/redis"
 	"testing"
 	"time"
 )
@@ -39,7 +39,7 @@ func Test_Consumer(t *testing.T) {
 		consumerGroup,
 		consumerID,
 		callbackFunc,
-		myredmq.WithMaxRetryLimit(2),
+		myredmq.myredmq.WithMaxRetryLimit(2),
 		myredmq.WithHandleMsgTimeout(2*time.Second),
 		myredmq.WithDeadLetterMailbox(demoDeadLetterMailbox))
 	if err != nil {

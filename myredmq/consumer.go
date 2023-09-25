@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"myredmq/log"
-	"myredmq/redis"
+	"myredmq/myredmq/log"
+	"myredmq/myredmq/redis"
 )
 
 type MsgCallback func(ctx context.Context, msg *redis.MsgEntity) error

@@ -2,7 +2,7 @@ package myredmq
 
 import (
 	"context"
-	"myredmq/redis"
+	"myredmq/myredmq/redis"
 )
 
 type Producer struct {

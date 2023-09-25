@@ -2,8 +2,8 @@ package myredmq
 
 import (
 	"context"
-	"myredmq/log"
-	"myredmq/redis"
+	"myredmq/myredmq/log"
+	"myredmq/myredmq/redis"
 )
 
 type DeadLetterMailbox interface {

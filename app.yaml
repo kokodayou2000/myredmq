@@ -1,0 +1,7 @@
+redis:
+  network: tcp
+  address: 127.0.0.1:6379
+  password: ""
+  defaultTopic: my_test_topic
+  defaultConsumerGroup: my_test_group
+  defaultConsumerID: my_test_consumer
