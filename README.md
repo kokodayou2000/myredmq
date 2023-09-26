@@ -1,5 +1,6 @@
-# redis streams implements message queue demo
-
+# Redis streams implements message queue demo
+just demo 
+是否能完成还不一定 
 ## example
 ```bash
 ./myredmq.exe run
