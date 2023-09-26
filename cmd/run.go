@@ -2,11 +2,15 @@ package cmd
 
 import (
 	"fmt"
+	"myredmq/myredmq/redis"
 	"myredmq/myredmq/util"
 	"myredmq/services"
 
 	"github.com/spf13/cobra"
 )
+
+// Cfg 创建对象
+var Cfg util.Config
 
 // runCmd represents the run command
 var runCmd = &cobra.Command{
@@ -14,12 +18,10 @@ var runCmd = &cobra.Command{
 	Short: "Run",
 	Run: func(cmd *cobra.Command, args []string) {
 		// load config file execute file must some level
-		config, err := util.LoadConfig(".")
+		err := Cfg.LoadConfig(".")
 		if err != nil {
 			return
 		}
-		fmt.Println(config.Redis.Address)
-
 		Run()
 	},
 }
@@ -29,7 +31,11 @@ func init() {
 }
 
 func Run() {
-	fmt.Print("Welcome to the redisMQ. \nType 'exit' to quit. \n")
+	fmt.Print("Welcome to the redisMQ.  \nType 'exit' to quit. \n")
+	client := redis.NewClient(Cfg.Redis.Network, Cfg.Redis.Address, Cfg.Redis.Password)
+	if client != nil {
+		fmt.Println("connect redis success!")
+	}
 	for {
 		question := services.AskUserQuestion()
 		if question == "exit" {

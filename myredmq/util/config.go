@@ -1,6 +1,9 @@
 package util
 
-import "github.com/spf13/viper"
+import (
+	"fmt"
+	"github.com/spf13/viper"
+)
 
 type Config struct {
 	Redis *Redis `yaml:"redis"`
@@ -15,7 +18,7 @@ type Redis struct {
 	DefaultConsumerID    string `yaml:"defaultConsumerID"`
 }
 
-func LoadConfig(path string) (config Config, err error) {
+func (cfg *Config) LoadConfig(path string) (err error) {
 	viper.AddConfigPath(path)
 	viper.SetConfigName("app")
 	viper.SetConfigType("yaml")
@@ -24,6 +27,13 @@ func LoadConfig(path string) (config Config, err error) {
 	if err != nil {
 		return
 	}
+	config := Config{}
 	err = viper.Unmarshal(&config)
-	return config, err
+	cfg.Redis = config.Redis
+	fmt.Println(cfg.Redis.Network)
+	return err
+}
+
+type ConfigInterface interface {
+	LoadConfig(path string) (err error)
 }

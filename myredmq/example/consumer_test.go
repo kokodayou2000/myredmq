@@ -39,7 +39,7 @@ func Test_Consumer(t *testing.T) {
 		consumerGroup,
 		consumerID,
 		callbackFunc,
-		myredmq.myredmq.WithMaxRetryLimit(2),
+		myredmq.WithMaxRetryLimit(2),
 		myredmq.WithHandleMsgTimeout(2*time.Second),
 		myredmq.WithDeadLetterMailbox(demoDeadLetterMailbox))
 	if err != nil {
