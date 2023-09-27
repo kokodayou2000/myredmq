@@ -10,10 +10,10 @@ just demo
 ```bash
 go build
 ./myredmq.exe run
-create topic my_test_topic 1m # 一分钟后进入到延迟队列中
-create topic my_test_dead_topic # 死信队列
-bind topic my_test_topic to my_test_dead_topic # 绑定延迟队列和死信队列
-send <msg> to my_test_topic # 发送消息给延迟队列
+create topic <my_test_topic> 1m # 一分钟后进入到延迟队列中
+create topic <my_test_dead_topic> # 死信队列
+bind topic <my_test_topic> to <my_test_dead_topic> # 绑定延迟队列和死信队列
+send <key> <value> to <my_test_topic> # 发送消息给延迟队列
 ```
 
 
