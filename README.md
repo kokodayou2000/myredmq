@@ -1,8 +1,14 @@
 # Redis streams implements message queue demo
-just demo 
+No finished
+
+just demo
+
 是否能完成还不一定 
+
+
 ## example
 ```bash
+go build
 ./myredmq.exe run
 create topic my_test_topic 1m # 一分钟后进入到延迟队列中
 create topic my_test_dead_topic # 死信队列
